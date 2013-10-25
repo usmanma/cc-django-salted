@@ -1,0 +1,5 @@
+-r base.txt
+
+pylibmc==1.2.3
+django-storages==1.1.4
+boto==2.9.5

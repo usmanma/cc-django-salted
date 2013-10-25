@@ -1,0 +1,39 @@
+# Bleeding edge Django
+https://github.com/django/django/archive/1.6b4.tar.gz
+
+# Configuration
+django-configurations==0.5.1
+django-secure==1.0
+django-cache-url==0.6.0
+dj-database-url==0.2.2
+
+# Forms
+django-braces==1.2.2
+django-crispy-forms==1.4.0
+django-floppyforms==1.1
+
+# Models
+South==0.8.2
+# hack so django-model-utils doesn't override Django 1.6b4 install
+git+git://github.com/pydanny/django-model-utils@d71bf2db7581d91dcc8e0a66fd4859eb8969d256
+
+
+# images
+Pillow==2.1.0
+
+# For user registration, either via email or social
+# Well-built with regular release cycles!
+django-allauth==0.13.0
+
+# For the persistance stores
+psycopg2==2.5
+
+# Unicode slugification
+unicode-slugify==0.1.1
+django-autoslug==1.7.1  
+
+# Useful things
+django-avatar==2.0
+
+
+# Your custom requirements go here
