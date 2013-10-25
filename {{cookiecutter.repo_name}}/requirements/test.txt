@@ -1,5 +1,5 @@
 # Test dependencies go here.
 -r production.txt
 
-coverage==3.6
-django-discover-runner==0.4
+coverage==3.7
+django-discover-runner==1.0
