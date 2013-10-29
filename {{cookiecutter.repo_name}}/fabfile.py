@@ -16,6 +16,8 @@ VENV_PATH = "/home/vagrant/env"
 WHEEL_PATH = "/home/vagrant/wheel"
 WHEEL_NAME = "wheel-requirements.tar.gz"
 
+UWSGI_CONFIG = "/etc/uwsgi/apps-enabled/{{ cookiecutter.repo_name }}.ini"
+
 def _md5_for_file(filename, block_size=2**20):
     filename = os.path.join(LOCAL_ROOT, filename)
     f = open(filename)
@@ -74,3 +76,13 @@ def wheel():
     # Create a MD5
     md5 = _md5_for_file(WHEEL_NAME)
     print colors.green('Upload the requirements and set the following MD5 in your pillar configuration: {md5}'.format(md5=md5))
+
+@task
+def updatestate():
+    """ Call salt highstate to get latest state """
+    sudo('salt-call state.highstate', quiet=False)
+
+@task
+def touchwsgi():
+    """ Touch the uwsgi config in order to reload new code """
+    sudo('touch {project_config}').format(project_config=UWSGI_CONFIG)
