@@ -15,6 +15,7 @@
       - pkg: libxml2-dev
       - pkg: libxslt1-dev
       - pkg: libjpeg62-dev
+      - pkg: git
 
 sync-db:
   cmd.wait:
