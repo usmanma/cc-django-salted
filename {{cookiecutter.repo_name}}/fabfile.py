@@ -86,3 +86,10 @@ def updatestate():
 def touchwsgi():
     """ Touch the uwsgi config in order to reload new code """
     sudo('touch {project_config}').format(project_config=UWSGI_CONFIG)
+
+@task
+def initialize():
+    """ Initialise a new environment """
+    syncdb()
+    migrate()
+    collectstatic()
