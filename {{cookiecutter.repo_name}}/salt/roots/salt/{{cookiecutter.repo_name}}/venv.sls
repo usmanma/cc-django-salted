@@ -17,9 +17,12 @@
       - pkg: libjpeg62-dev
       - pkg: git
 
-sync-db:
-  cmd.wait:
-    - name: {{ pillar['django']['virtualenv'] }}/bin/python {{ pillar['django']['path'] }}/manage.py syncdb --noinput && {{ pillar['django']['virtualenv'] }}/bin/python {{ pillar['django']['path'] }}/manage.py migrate
-    - require:
-      - virtualenv: {{ pillar['django']['virtualenv'] }}
+# django.syncdb:
+#   module.run:
+#     - settings_module: {{ pillar['django']['settings'] }}
+#     - bin_env: {{ pillar['django']['virtualenv'] }}
+#     - pythonpath: {{ pillar['django']['path'] }}
+#     - migrate: True
+#     - require:
+#       - virtualenv: {{ pillar['django']['virtualenv'] }}
 {% endraw %}
